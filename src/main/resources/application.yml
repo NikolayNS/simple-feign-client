@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: simple-feign-client
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
+
+integration:
+  first-address:
+    base-url: http://localhost:8080
+    first-endpoint: /first-endpoint
+    second-endpoint: /second-endpoint/{id}
+    third-endpoint: /third-endpoint
+
+logging:
+  pattern:
+    console: "%clr(%-5level) %d{yyy-MM-dd HH:mm:ss.SS} [%thread] %clr([%logger{0}.%M]){cyan} %m%wEx%n"
+    file: "[%-5level] %d{yyy-MM-dd HH:mm:ss.SS} [%thread] [%-26logger{26}] %m%wEx%n"
